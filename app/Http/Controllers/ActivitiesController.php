@@ -11,11 +11,17 @@ class ActivitiesController extends Controller
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    function indoor() {}
+    function indoor() {
+        return view('activities.indoor');
+    }
 
-    function outdoor() {}
+    function outdoor() {
+        return view('activities.outdoor');
+    }
 
-    function recreation() {}
+    function recreation() {
+        return view('activities.recreation');
+    }
 
     function create() {}
 }
