@@ -14,5 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('static_pages/home');
 });
+
+# Users
+Route::get('/users/new', [App\Http\Controllers\UsersController::class, 'new']);
+Route::post('/users', [App\Http\Controllers\UsersController::class, 'create']);
+
+# Activities
+Route::get('/indoor-sports', [App\Http\Controllers\ActivitiesController::class, 'indoor']);
+Route::get('/outdoor-sports', [App\Http\Controllers\ActivitiesController::class, 'outdoor']);
+Route::get('/recreation', [App\Http\Controllers\ActivitiesController::class, 'recreation']);
+Route::post('/activities', [App\Http\Controllers\ActivitiesController::class, 'create']);
+
+Route::get('/contact-us', [App\Http\Controllers\StaticPagesController::class, 'contact']);
+
+# Gallery
+Route::get('/gallery', [App\Http\Controllers\MediaController::class, 'index']);
+
+# Feedback
+Route::post('/feedback', [App\Http\Controllers\FeedbackController::class, 'create']);
