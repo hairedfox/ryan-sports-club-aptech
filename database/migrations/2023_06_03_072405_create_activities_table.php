@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('max_people');
             $table->longText('famous_players');
             $table->longText('rules');
-            $table->foreign('creator_id')->references('id')->on('users');
+            $table->integer('creator_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

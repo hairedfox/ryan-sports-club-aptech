@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('media', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('url');
-            $table->integer('creator_id')->references('id')->on('users');
-            $table->timestamps();
+        Schema::table('activities', function (Blueprint $table) {
+            $table->string('type');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('media');
+        Schema::table('activities', function (Blueprint $table) {
+            $table->dropColumn('type');
+        });
     }
 };
